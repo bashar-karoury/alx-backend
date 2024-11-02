@@ -68,13 +68,15 @@ class Server:
         result_dict['index'] = start
         result_dict['next_index'] = end
 
-        # page_size: the current page size
-
         # data: the actual page of the dataset
+        idx = start
         try:
             for _ in range(start, end):
-                data.append(self.__indexed_dataset.get(
-                    sorted_indexed_dataset[_]))
+
+                while (not self.__indexed_dataset.get(idx)):
+                    idx += 1
+                data.append(self.__indexed_dataset.get(idx))
+                idx += 1
         except IndexError:
             pass
         result_dict['page_size'] = len(data)
