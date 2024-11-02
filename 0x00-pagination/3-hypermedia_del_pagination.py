@@ -73,7 +73,8 @@ class Server:
         # data: the actual page of the dataset
         try:
             for _ in range(start, end):
-                data.append(sorted_indexed_dataset[_])
+                data.append(self.__indexed_dataset.get(
+                    sorted_indexed_dataset[_]))
         except IndexError:
             pass
         result_dict['page_size'] = len(data)
