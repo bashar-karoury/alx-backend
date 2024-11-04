@@ -32,7 +32,7 @@ class LRUCache(BaseCaching):
             if length >= self.MAX_ITEMS:
                 # get LRU element
                 sorted_freq = dict(
-                    sorted(self.__usage_freq.items(), key=lambda item: item[1]))
+                    sorted(self.__usage_freq.items(), key=lambda it: it[1]))
                 discarded_key = list(sorted_freq)[0]
                 # delete from cache
                 del self.cache_data[discarded_key]
