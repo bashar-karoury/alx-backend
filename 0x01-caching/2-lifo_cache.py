@@ -24,6 +24,7 @@ class LIFOCache(BaseCaching):
 
         if key and item:
             if key in self.cache_data:
+                self.cache_data[key] = item
                 return
             length = len(self.cache_data)
             if length >= self.MAX_ITEMS:
