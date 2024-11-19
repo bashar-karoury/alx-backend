@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <title> {{title}} </title>
+</head>
+
+<body>
+    <h1> {{header}} </h1>
+    <p>
+        {% if g.user %}
+        {{logged_in_as}} {{user_name}}
+        {% else %}
+        {{not_logged_in}}
+        {% endif %}
+    </p>
+    <p>
+        Time: {{time}}
+
+    </p>
+</body>
+
+</html>
