@@ -69,9 +69,6 @@ app.get('/list_products', (req, res) => {
     res.json(listProducts);
 });
 
-// Product detail
-// Create the route GET /list_products/:itemId, that will 
-// return the current product and the current available stock (by using getCurrentReservedStockById)
 
 app.get('/list_products/:itemId', async (req, res) => {
     const { itemId } = req.params;
@@ -93,22 +90,6 @@ app.get('/list_products/:itemId', async (req, res) => {
     }
   });
 
-
-// Reserve a product
-// Create the route GET /reserve_product/:itemId:
-
-// If the item does not exist, it should return:
-// bob@dylan:~$ curl localhost:1245/reserve_product/12 ; echo ""
-// {"status":"Product not found"}
-// bob@dylan:~$ 
-// If the item exists, it should check that there is at least one stock available. If not it should return:
-// bob@dylan:~$ curl localhost:1245/reserve_product/1 ; echo ""
-// {"status":"Not enough stock available","itemId":1}
-// bob@dylan:~$ 
-// If there is enough stock available, it should reserve one item (by using reserveStockById), and return:
-// bob@dylan:~$ curl localhost:1245/reserve_product/1 ; echo ""
-// {"status":"Reservation confirmed","itemId":1}
-// bob@dylan:~$
 
 app.get('/reserve_product/:itemId', async (req, res) => {
     const { itemId } = req.params;
