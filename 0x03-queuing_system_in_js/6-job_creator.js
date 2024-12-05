@@ -7,7 +7,7 @@ const obj = {
     phoneNumber: '0907164806',
     message: 'phone number string',
   };
-const job = push_notification_code.create(obj).save((err) => {
+const job = push_notification_code.create('notification', obj).save((err) => {
     if (err) {
       console.log('Error saving job:', err);
     } else {
